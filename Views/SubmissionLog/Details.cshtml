@@ -1,0 +1,58 @@
+﻿@model WarriorCombatAcademyTrainer.Models.SubmissionLog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubmissionLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OpponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WinLoss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WinLoss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

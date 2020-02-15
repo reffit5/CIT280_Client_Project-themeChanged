@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WarriorCombatAcademyTrainer.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="background-color:darkred; text-align:center;">Administrator Page</h2>
+<div style="background-color:red;float:left; ">
+    <p style="font-size:25px;">Search<textarea style="width:300px; height:20px; margin-left:20px;"></textarea></p>
+    <p style="margin-left:25px;"><button>Cancel</button><button style=" margin-left:15px;">GO</button></p>
+</div>
+<div style="background-color:red; margin-left:100px;">
+    <h1 style="font-size:25px; text-align:center">Filter By</h1>
+    <p style="text-align:center" ><input type="radio" value="First Name" /> First Name</p>
+      <p style="text-align:center"><input type="radio" value="Last Name" /> Last Name</p>
+</div>
+
+
+<p style="float:right; background-color:darkred;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="border:groove;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FighterRank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SparingCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RankID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FighterRank)
+            <select name="FighterRank">
+                <option>test</option>
+                <option>initiate</option>
+                <option>intermediate</option>
+                <option>veteran</option>
+                <option>expert</option>
+            </select>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SparingCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RankID)
+        </td>
+        <td style="background-color:darkred;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+

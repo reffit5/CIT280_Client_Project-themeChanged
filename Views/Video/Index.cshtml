@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WarriorCombatAcademyTrainer.Models.Video>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2 style="background-color:darkred; text-align:center;">Administrator Page</h2>
+<div style="background-color:red;float:left; ">
+    <p style="font-size:25px;">Search<textarea style="width:300px; height:20px; margin-left:20px;"></textarea></p>
+    <p style="margin-left:25px;"><button>Cancel</button><button style=" margin-left:15px;">GO</button></p>
+</div>
+<div style="background-color:red; margin-left:100px;">
+    <h1 style="font-size:25px; text-align:center">Filter By</h1>
+    <p style="text-align:center"><input type="radio" value="Name" /> Name</p>
+    <p style="text-align:center"><input type="radio" value="Rank" /> Rank</p>
+</div>
+<p style="float:right; background-color:darkred;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RankID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoSrc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsVideoComplete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoRank)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RankID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoSrc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsVideoComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoRank)
+                <select name="FighterRank">
+                    <option>test</option>
+                    <option>initiate</option>
+                    <option>intermediate</option>
+                    <option>veteran</option>
+                    <option>expert</option>
+                </select>
+            </td>
+            <td style="background-color:darkred;">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
